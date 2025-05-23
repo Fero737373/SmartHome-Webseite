@@ -1,15 +1,27 @@
+// src/App.jsx
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import AppRouter from './routes/AppRouter';
 import Header from './components/Header';
+import ScrollToTop from './components/ScrollToTop';
+import Hero from './components/Hero';
+import About from './components/About';
+import Services from './components/Services';
+import Benefits from './components/Benefits';
+import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <>
       <Header />
-      <AppRouter />
+      <ScrollToTop />
+      <main className="pt-16">
+        <Hero />
+        <About />
+        <Services />
+        <Benefits />
+        <Contact />
+      </main>
       <Footer />
-    </BrowserRouter>
+    </>
   );
 }
