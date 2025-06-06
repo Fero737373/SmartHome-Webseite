@@ -4,9 +4,21 @@ import { Link as ScrollLink } from 'react-scroll';
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [dark, setDark] = useState(false);
+
+  const toggleDark = () => {
+    const html = document.documentElement;
+    if (dark) {
+      html.classList.remove('dark');
+    } else {
+      html.classList.add('dark');
+    }
+    setDark(!dark);
+  };
+
   return (
-    <header className="fixed w-full bg-white shadow z-50">
-      <div className="container mx-auto flex items-center justify-between p-4">
+    <header className="fixed w-full bg-white dark:bg-gray-800 shadow z-50">
+      <div className="container mx-auto flex items-center justify-between p-4 text-gray-900 dark:text-gray-100">
         <div className="text-2xl font-bold">Moaid SmartHome</div>
         <nav className={`md:flex md:items-center ${open ? '' : 'hidden'}`}>
           {['home','about','services','benefits','contact'].map((sec) => (
@@ -21,9 +33,14 @@ export default function Header() {
             </ScrollLink>
           ))}
         </nav>
-        <button className="md:hidden" onClick={() => setOpen(!open)}>
-          ☰
-        </button>
+        <div className="flex items-center gap-4">
+          <button onClick={toggleDark} aria-label="Toggle dark mode" className="hidden md:block">
+            {dark ? '☀️' : '🌙'}
+          </button>
+          <button className="md:hidden" onClick={() => setOpen(!open)}>
+            ☰
+          </button>
+        </div>
       </div>
     </header>
   );
