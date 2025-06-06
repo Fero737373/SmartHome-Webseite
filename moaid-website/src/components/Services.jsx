@@ -130,63 +130,14 @@ export default function Services() {
   };
 
   return (
-    <section id="services" className="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section id="services" className="py-20 bg-gray-50">
       <div className="container mx-auto text-center px-4">
-        <h2 className="text-4xl font-extrabold mb-12 text-gray-800">
-          Unsere Leistungen
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
-          {services.map((service, idx) => (
-            <div
-              key={service.title}
-              ref={(el) => (cardRefs.current[idx] = el)}
-              onClick={() => toggleExpand(idx)}
-              className="relative p-12 pt-16 bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer"
-            >
-              {/* Pfeil‐Icon zur Visualisierung */}
-              <div
-                className={`absolute top-4 right-4 transform transition-transform duration-300 ${
-                  expandedIndex === idx ? 'rotate-180' : ''
-                }`}
-              >
-                <svg
-                  className="w-6 h-6 text-gray-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </div>
-
-              {/* Icon: Mehr Platz und zentriert */}
-              <div className="flex justify-center mb-6 mt-2">{service.icon}</div>
-
-              {/* Titel und kurze Beschreibung */}
-              <h3 className="text-2xl font-semibold text-gray-900 mb-3">
-                {service.title}
-              </h3>
-              <p className="text-gray-600 mb-4">{service.desc}</p>
-
-              {/* Ausklappbarer Text mit smooth Animation */}
-              <div className={`transition-all duration-500 ease-in-out ${
-                expandedIndex === idx ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0 mt-0'
-              } overflow-hidden`}>
-                <div className="pt-4 border-t border-gray-200 text-left text-gray-700 leading-relaxed">
-                  <p className="mb-3">{service.more}</p>
-                  <p className="text-sm text-gray-500">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
-                  </p>
-                </div>
-              </div>
+        <h2 className="text-3xl font-bold mb-8">Unsere Leistungen</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {services.map((s) => (
+            <div key={s.title} className="p-6 bg-white rounded-lg shadow">
+              <h3 className="text-2xl font-semibold mb-2">{s.title}</h3>
+              <p>{s.desc}</p>
             </div>
           ))}
         </div>
