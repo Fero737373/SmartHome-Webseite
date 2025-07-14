@@ -19,7 +19,7 @@ export default function Header() {
   return (
     <header className="fixed w-full bg-white dark:bg-gray-800 shadow z-50">
       <div className="container mx-auto flex items-center justify-between p-4 text-gray-900 dark:text-gray-100">
-        <div className="text-2xl font-bold">Moaid SmartHome</div>
+        <div className="text-2xl font-bold">SMART LIVING KONZEPTE</div>
         <nav className={`md:flex md:items-center ${open ? '' : 'hidden'}`}>
           {['home','about','services','benefits','contact'].map((sec) => (
             <ScrollLink
